@@ -5,3 +5,5 @@ University in Copenhagen`.
 
 For best results make sure that you also have [`textidote`](https://sylvainhalle.github.io/textidote/) installed on your
 system.
+
+Also Kristiyan is cool
