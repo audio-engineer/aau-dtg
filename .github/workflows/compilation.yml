@@ -1,0 +1,29 @@
+name: Compilation
+on: push
+jobs:
+  Compilation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dante-ev/latex-action@latest
+        with:
+          root_file: main.tex
+          working_directory: src/
+          compiler: lualatex
+          args: -file-line-error -interaction=nonstopmode -output-format=pdf
+      - uses: dante-ev/latex-action@latest
+        with:
+          root_file: main.aux
+          working_directory: src/
+          compiler: bibtex
+          args: ''
+      - uses: dante-ev/latex-action@latest
+        with:
+          root_file: main.tex
+          working_directory: src/
+          compiler: lualatex
+          args: -file-line-error -interaction=nonstopmode -output-format=pdf
+      - uses: actions/upload-artifact@v3
+        with:
+          name: main.pdf
+          path: src/main.pdf
