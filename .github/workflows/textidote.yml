@@ -1,5 +1,5 @@
 name: TeXtidote
-on: push
+on: workflow_dispatch
 jobs:
   TeXtidote:
     runs-on: ubuntu-latest
