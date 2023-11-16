@@ -2,10 +2,11 @@
 \documentclass[11pt,oneside]{book}
 
 % Packages
+\usepackage[a4paper]{geometry}
 \usepackage[danish]{babel}
 \usepackage{tikz}
 \usepackage{amsmath}
-\usepackage{import}
+\usepackage[indent=20pt]{parskip}
 
 % Document
 \title{DTG noter}
@@ -17,5 +18,6 @@
     \tableofcontents
 
 
-    \import{workshops/1/}{content}
+    \input{workshops/1/content}
+    \input{workshops/2/content}
 \end{document}
