@@ -7,6 +7,18 @@
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage[indent=20pt]{parskip}
+\usepackage{hyperref}
+\usepackage{listings}
+
+% textidote: ignore begin
+\hypersetup{pdfborder=0 0 0}
+
+\lstdefinestyle{code}{
+    tabsize=2
+}
+
+\lstset{style=code}
+% textidote: ignore end
 
 % Document
 \title{DTG noter}
@@ -15,8 +27,9 @@
 \begin{document}
     \maketitle
 
+    % textidote: ignore begin
     \tableofcontents
-
+    % textidote: ignore end
 
     \input{workshops/1/content}
     \input{workshops/2/content}

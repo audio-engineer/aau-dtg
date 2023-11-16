@@ -11,24 +11,6 @@ jobs:
           working_directory: src/
           compiler: lualatex
           args: -file-line-error -interaction=nonstopmode -output-format=pdf -shell-escape
-      - uses: dante-ev/latex-action@latest
-        with:
-          root_file: main.aux
-          working_directory: src/
-          compiler: bibtex
-          args: ''
-      - uses: dante-ev/latex-action@latest
-        with:
-          root_file: main.tex
-          working_directory: src/
-          compiler: lualatex
-          args: -file-line-error -interaction=nonstopmode -output-format=pdf -shell-escape
-      - uses: dante-ev/latex-action@latest
-        with:
-          root_file: main.tex
-          working_directory: src/
-          compiler: lualatex
-          args: -file-line-error -interaction=nonstopmode -output-format=pdf -shell-escape
       - name: Get commit hash
         run: echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
       - name: Rename PDF
