@@ -1,0 +1,2 @@
+--dict src/whitelist.txt
+--read-all

@@ -66,6 +66,7 @@
     <inspection_tool class="LatexMissingDocumentEnvironment" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="LatexMissingDocumentclass" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="LatexPackageCouldNotBeFound" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="LatexUndefinedCommand" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="LocalVariableNamingConventionJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LongLine" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MagicNumberJS" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -98,7 +99,9 @@
     <inspection_tool class="RegExpAnonymousGroup" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ReplaceAssignmentWithOperatorAssignmentJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ReuseOfLocalVariableJS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RsAssociatedTypeMismatch" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="RsExperimentalChecks" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="RsTraitObligations" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="SqlGotoInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SqlMissingColumnAliasesInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SqlNamedArgumentsInspection" enabled="true" level="WARNING" enabled_by_default="true" />
