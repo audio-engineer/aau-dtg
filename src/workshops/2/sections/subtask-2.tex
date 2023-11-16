@@ -1,10 +1,37 @@
 \section{Delopgave 2}\label{sec:delopgave-22}
 
-Funktionen er ikke injektiv fordi at, ud fra defininition fra injektivitet må \( f: A \rightarrow B \) maks antage en
-værdi når den går fra \(A\) til \(B\), men når vi kigger efter værdier ude fra mængden vil funktionen antage værdien
-\(0\).
+\subsection{Implementering af søgningsalgoritmer}\label{subsec:implementering-af-sgningsalgoritmer}
 
-Dette udelukker også at den er bijektiv da det kræver at den både er, surjektiv og injektiv.
+Tilføj følgende kodeuddrag til funktionen \lstinline{LinSearch} i \lstinline{SearchFunc.c}:
 
-Surjektivitet er defineret ved at funktionen mindst skal antage en værdi for alle A til B\@.
-Det opfylder funktionen da vi har at hvis ikke \(A_{i}\) eksisterer i mængden antager værdien \(0\).
+\begin{lstlisting}[language=C, label={lst:lstlisting-lin}]
+...
+/* Fyld ind hvad der mangler her */
+while (i <= n && x != array[i]) {
+  i += 1;
+}
+
+if (i > n) {
+  i = 0;
+}
+...
+\end{lstlisting}
+
+Tilføj følgende kodeuddrag til funktionen \lstinline{BinSearch} i \lstinline{SearchFunc.c}:
+
+\begin{lstlisting}[language=C, label={lst:lstlisting-bin}]
+...
+/* Fyld ind hvad der mangler her */
+int m;
+
+while (i < n && x != array[i]) {
+  m = (i + n) / 2;
+
+  if (x > array[m]) {
+    i = m + 1;
+  } else {
+    n = m;
+  }
+}
+...
+\end{lstlisting}
