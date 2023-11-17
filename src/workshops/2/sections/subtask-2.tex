@@ -1,0 +1,41 @@
+\section{Delopgave 2}\label{sec:delopgave-22}
+
+\subsection{Implementering af søgningsalgoritmer}\label{subsec:implementering-af-sgningsalgoritmer}
+
+% textidote: ignore begin
+Tilføj følgende kodeuddrag til funktionen \lstinline{LinSearch} i \lstinline{SearchFunc.c}:
+% textidote: ignore end
+
+\begin{lstlisting}[language=C, label={lst:lstlisting-lin}]
+...
+/* Fyld ind hvad der mangler her */
+while (i <= n && x != array[i]) {
+  i += 1;
+}
+
+if (i > n) {
+  i = 0;
+}
+...
+\end{lstlisting}
+
+% textidote: ignore begin
+Tilføj følgende kodeuddrag til funktionen \lstinline{BinSearch} i \lstinline{SearchFunc.c}:
+% textidote: ignore end
+
+\begin{lstlisting}[language=C, label={lst:lstlisting-bin}]
+...
+/* Fyld ind hvad der mangler her */
+int m;
+
+while (i < n && x != array[i]) {
+  m = (i + n) / 2;
+
+  if (x > array[m]) {
+    i = m + 1;
+  } else {
+    n = m;
+  }
+}
+...
+\end{lstlisting}

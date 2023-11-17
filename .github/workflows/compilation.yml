@@ -10,20 +10,30 @@ jobs:
           root_file: main.tex
           working_directory: src/
           compiler: lualatex
-          args: -file-line-error -interaction=nonstopmode -output-format=pdf
-      # - uses: dante-ev/latex-action@latest
-      #   with:
-      #     root_file: main.aux
-      #     working_directory: src/
-      #     compiler: bibtex
-      #     args: ''
+          args: -file-line-error -interaction=nonstopmode -output-format=pdf -shell-escape
+          # - uses: dante-ev/latex-action@latest
+          # with:
+          # root_file: main.aux
+          # working_directory: src/
+          # compiler: bibtex
+          # args: ''
       - uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
           working_directory: src/
           compiler: lualatex
-          args: -file-line-error -interaction=nonstopmode -output-format=pdf
+          args: -file-line-error -interaction=nonstopmode -output-format=pdf -shell-escape
+      - uses: dante-ev/latex-action@latest
+        with:
+          root_file: main.tex
+          working_directory: src/
+          compiler: lualatex
+          args: -file-line-error -interaction=nonstopmode -output-format=pdf -shell-escape
+      - name: Get commit hash
+        run: echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
+      - name: Rename PDF
+        run: mv src/main.pdf "src/${{ github.ref_name }}-${{ env.sha_short }}.pdf"
       - uses: actions/upload-artifact@v3
         with:
-          name: main.pdf
-          path: src/main.pdf
+          name: "${{ github.ref_name }}-${{ env.sha_short }}.pdf"
+          path: "src/${{ github.ref_name }}-${{ env.sha_short }}.pdf"

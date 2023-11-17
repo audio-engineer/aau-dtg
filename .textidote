@@ -1,0 +1,3 @@
+--dict src/whitelist.txt
+--read-all
+--ignore sh:seclen,sh:stacked,sh:nsubdiv

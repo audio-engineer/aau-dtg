@@ -1,5 +1,5 @@
 name: TeXtidote
-on: workflow_dispatch
+on: push
 jobs:
   TeXtidote:
     runs-on: ubuntu-latest
@@ -9,7 +9,10 @@ jobs:
         id: textidote
         with:
           root_file: src/main.tex
-          args: --check en
+      - uses: actions/upload-artifact@v3
+        with:
+          name: report.html
+          path: report.html
       - name: Fail
         if: ${{ steps.textidote.outputs.num_warnings != 0 }}
         run: 'echo "::error file=main.tex::num_warnings: ${{ steps.lint.outputs.num_warnings }}"; exit 1;'
