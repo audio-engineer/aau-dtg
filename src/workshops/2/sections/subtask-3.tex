@@ -1,57 +1,83 @@
 \section{Delopgave 3}\label{sec:delopgave-32}
 
 \subsection{Udledningen af kompleksiteten for \textsc{BinSearch}}
-\label{subsec:udledningen-af-kompleksiteten-for-textsc{binsearch}}
+\label{subsec:udledningen-af-kompleksiteten-for-binsearch}
 
 Kompleksiteten er det inverse af en eksponentialfunktion.
 
 Hver gang vi itererer, halverer vi samtidigt
 
 \subsection{I hvilket tilfælde vil vi lave flest sammenligninger i \textsc{LinSearch}?}
-\label{subsec:i-hvilket-tilflde-vil-vi-lave-flest-sammenligninger-i-textsc{linsearch}?}
+\label{subsec:i-hvilket-tilflde-vil-vi-lave-flest-sammenligninger-i-linsearch}
 
 Worst case: Elementet findes ikke
 
 Best case:
 
-\subsection{Vis, at \textsc{LinSearch} er \(\Theta\left(n\right)\) og \textsc{BinSearch} \(\Theta\left(\log\left(n
-\right)\right)\)}
-\label{subsec:vis-at-textsc{linsearch}-er-(thetaleft(0right))-og-textsc{binsearch}-(thetaleft(logleft(nright)right))}
+\subsection{Vis, at \textsc{LinSearch} er \(\Theta(n)\) og \textsc{BinSearch} \(\Theta(\log(n))\)}
+\label{subsec:vis-at-linsearch-er-theta-n-og-binsearch-theta-log-n}
 
 \begin{equation}
     \begin{aligned}
-        \lvert f(x) \rvert & \leq C \lvert g(x) \rvert \\
-        \lvert 2n + 2 \rvert & \leq Cn \\
+        | f(x) | & \leq C | g(x) | \\
+        | 2n + 2 | & \leq Cn \\
         2n + 2 & \leq 4n
     \end{aligned}\label{eq:equation13}
 \end{equation}
 
 \begin{equation}
     \begin{aligned}
-        \lvert f(n) \rvert & \geq Cn \\
-        \lvert 2n + 2 \rvert & \geq Cn \\
-        \lvert 2n + 2 \rvert & > n
+        | f(n) | & \geq Cn \\
+        | 2n + 2 | & \geq Cn \\
+        | 2n + 2 | & > n
     \end{aligned}\label{eq:equation14}
 \end{equation}
 
 \subsection{Sammenligning af den teoretiske og den praktiske kompleksitet}
 \label{subsec:sammenligning-af-den-teoretiske-og-den-praktiske-kompleksitet}
 
-\subsection{Er det hurtigere at sortere listen først og bruge \textsc{BinSearch} eller bare at bruge \textsc{
-    LinSearch}?}
-\label{subsec:er-det-hurtigere-at-sortere-listen-frst-og-bruge-textsc{binsearch}-eller-bare-at-bruge-textsc{linsearch}?}
+\subsection{Er det hurtigere at sortere listen først og bruge \textsc{BinSearch} eller bare at bruge
+\textsc{LinSearch}?}
+\label{subsec:er-det-hurtigere-at-sortere-listen-frst-og-bruge-binsearch-eller-bare-at-bruge-linsearch}
+
+Kompleksiteten af \textsc{LinSearch} er \(\Theta(n)\), kompleksiteten af \textsc{BinSearch} er\(\Theta(\log_{2}(n))\),
+og kompleksiteten af sortering er \(\Theta(n\log(n))\).
+
+Vi kan lave et estimat ved at beregne kompleksiteten for \(50\) søgninger:
+
+\subsubsection{\textsc{LinSearch}}
+
+\begin{equation}
+    50 \cdot 10000 = 500000
+    \label{eq:equation16}
+\end{equation}
+
+\subsubsection{\textsc{BinSearch}}
+
+\begin{equation}
+    \begin{aligned}
+        & 10000 \log_{2}(10000) + 50 \log_{2}(10000) \\
+        & = 10000 \cdot 13,3 + 50 \cdot 13,3 \\
+        & = 133000 + 665 \\
+        & = 133665
+    \end{aligned}
+    \label{eq:equation17}
+\end{equation}
+
+\textsc{BinSearch} er ca. fire gange hurtigere end \textsc{LinSearch}, selv hvis man sorterer først.
 
 \subsection{Hvornår betaler det sig at bruge \textsc{BinSearch} i stedet for \textsc{LinSerach}?}
-\label{subsec:hvornar-betaler-det-sig-at-bruge-textsc{binsearch}-i-stedet-for-textsc{linserach}?}
+\label{subsec:hvornar-betaler-det-sig-at-bruge-binsearch-i-stedet-for-linserach}
 
 \begin{equation}
     \begin{aligned}
         x \cdot 10000 & = 10000 \log_{2}(10000) + x \log_{2}(10000) && \mid - x \log_{2}(10000) \\
         x \cdot 10000 - x \log_{2}(10000) & = 10000 \log_{2}(10000) \\
-        x \left( 10000 - x \log_{2}(10000) \right) & = 10000 \log_{2}(10000) && \mid \div 10000 - x \log_{2}(10000) \\
+        x (10000 - x \log_{2}(10000)) & = 10000 \log_{2}(10000) && \mid \div 10000 - x \log_{2}(10000) \\
         x & = \frac{10000 \log_{2}(10000)}{10000 - \log_{2}(10000)} \\
         & \approx 13,3
-    \end{aligned}\label{eq:equation15}
+    \end{aligned}
+    \label{eq:equation15}
 \end{equation}
 
 Det betaler sig altså at bruge \textsc{BinSearch} is stedet for \textsc{LinSearch} for \(n > 13,3\), selv hvis vi skal
