@@ -1,0 +1,31 @@
+\section{Delopgave 3}\label{sec:delopgave-33}
+
+\subsection{\textsc{Merge} med \(m + n - 1\) sammenligninger}\label{subsec:merge-med-m-+-n-1-sammenligninger}
+
+\subsubsection{Grundtilfælde (k = 0)}
+For \(k = 0\), \(n = 2^0 = 1\).
+For \(n = 1\) element er ingen sammenligninger nødvendige, da et enkelt element allerede er sorteret (trivielt
+sorteret liste).
+
+\subsubsection{Induktivt trin}
+Antag at formlen gælder for \(k = p\).
+Lad os bevise den for \(k = p + 1\).
+
+- For \(k = p\), \(n = 2^p\) elementer, og Mergesort bruger \(n(\log_2(n) + 1) = 2^p(p + 1)\) sammenligninger.
+- For \(k = p + 1\), \(n = 2^{p+1} = 2 \times 2^p\) elementer.
+
+Ved brug af formlen for antallet af sammenligninger for to lister med længder \(m\) og \(n\) (hvor \(m\) og \(n\)
+begge er \(2^p\)):
+
+For to lister med længder \(2^p\) og \(2^p\) (fordi \(2 \times 2^p = 2^{p+1}\)):
+
+Antal sammenligninger = \(2^p + 2^p - 1 = 2 \times 2^p - 1 = 2^{p+1} - 1\).
+
+For \(k = p + 1\) bruger Mergesort \(2^{p+1} \times ((p+1) + 1) = 2^{p+1}(p+2)\) sammenligninger.
+
+\subsubsection{Konklusion}
+- Grundtilfælde (k = 0) er sandt: \(2^0(0 + 1) = 1(1) = 1\) sammenligning.
+- Det induktive trin er sandt for \(k = p + 1\) under antagelse af, at det gælder for \(k = p\).
+
+Dette fuldender induktionsbeviset og viser, at Mergesort bruger præcis \(n(\log_2(n) + 1) = 2^k(k + 1)\)
+sammenligninger for en inputliste \(L\) med \(n = 2^k\) elementer.
