@@ -50,6 +50,7 @@ void Merge(int unsorted_list[], int left, int middle, int right) {
   }
 }
 
+// NOLINTNEXTLINE(misc-no-recursion)
 void MergeSort(int unsorted_list[], int left, int right) {
   if (left < right) {
     int middle = left + (right - left) / 2;
