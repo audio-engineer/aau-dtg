@@ -16,31 +16,37 @@ void Merge(int unsorted_list[], int left, int middle, int right) {
     sublist_two[j] = unsorted_list[middle + 1 + j];
   }
 
-  int i = 0;
-  int j = 0;
-  int k = left;
+  int index_sublist_one = 0;
+  int index_sublist_two = 0;
+  int index_merged = left;
 
-  while (i < sublist_one_length && j < sublist_two_length) {
-    if (sublist_one[i] <= sublist_two[j]) {
-      unsorted_list[k] = sublist_one[i];
-      i++;
+  while (index_sublist_one < sublist_one_length &&
+         index_sublist_two < sublist_two_length) {
+    if (sublist_one[index_sublist_one] <= sublist_two[index_sublist_two]) {
+      unsorted_list[index_merged] = sublist_one[index_sublist_one];
+
+      index_sublist_one++;
     } else {
-      unsorted_list[k] = sublist_two[j];
-      j++;
+      unsorted_list[index_merged] = sublist_two[index_sublist_two];
+
+      index_sublist_two++;
     }
-    k++;
+
+    index_merged++;
   }
 
-  while (i < sublist_one_length) {
-    unsorted_list[k] = sublist_one[i];
-    i++;
-    k++;
+  while (index_sublist_one < sublist_one_length) {
+    unsorted_list[index_merged] = sublist_one[index_sublist_one];
+
+    index_sublist_one++;
+    index_merged++;
   }
 
-  while (j < sublist_two_length) {
-    unsorted_list[k] = sublist_two[j];
-    j++;
-    k++;
+  while (index_sublist_two < sublist_two_length) {
+    unsorted_list[index_merged] = sublist_two[index_sublist_two];
+
+    index_sublist_two++;
+    index_merged++;
   }
 }
 
@@ -64,6 +70,7 @@ void PrintList(int list[], int size) {
 }
 
 int main() {
+  // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
   int list[] = {5, 3, 8, 1, 6, 10, 7, 2, 4, 9};
   int list_size = sizeof(list) / sizeof(list[0]);
 
