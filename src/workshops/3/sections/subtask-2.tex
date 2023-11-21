@@ -1,0 +1,21 @@
+\section{Delopgave 2}\label{sec:delopgave-23}
+
+\subsection{Bevis, at \textsc{MergeSort} kan sortere lister med heltal}
+\label{subsec:bevis-at-mergesort-kan-sortere-lister-med-heltal}
+
+\subsubsection{Basistrin}
+
+Lad \(n = 1 \rightarrow l = 0, r = 0\).
+\(L\) bliver returneret, uden at blive modificeret, men er også sorteret, fordi der kun er ét element i listen.
+
+\subsubsection{Induktionstrin}
+
+Induktionshypotese: \textsc{MergeSort} anvendes på en delliste med længde \(l < n\) og returnerer den samme liste
+sorteret.
+
+Lad \(n > 1\).
+Vi kalder \textsc{MergeSort} på hele intervallet \lstinline{MergeSort(L, 0, n - 1)}.
+Intern vil \textsc{MergeSort} så kalde \textsc{MergeSort} igen på \lstinline{MergeSort(L, 0, floor((n - 1) / 2)))} og
+\lstinline{MergeSort(L, floor((n - 1) / 2) + 1, n - 1)}.
+Efter induktionshypotesen vil de to kald til \textsc{MergeSort} returnere sorterede lister efter ``opgaveantagelsen'',
+dvs. \textsc{Merge} returnere en sammenflettet, sorteret liste.
