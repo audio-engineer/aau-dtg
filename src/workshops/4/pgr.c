@@ -15,7 +15,9 @@ int isPrime(int number) {
 }
 
 /* Denne funktion skal returnere 1 hvis gcd(x,2)=1 og 0 ellers */
-int isGcd1(int number) { return 1; }
+int isGcd1(int number) {
+  return number;
+}
 
 /* Denne funktion skal returnere 1 hvis 9^x-2 mod 5 = 2 og 0 ellers */
 int is2mod5(int number) {
@@ -24,8 +26,10 @@ int is2mod5(int number) {
 }
 
 int main(void) {
-  int number_to_test;
-  int isPrime_bool, isGcd1_bool, is2mod5_bool;
+  int number_to_test = 0;
+  int isPrime_bool = 0;
+  int isGcd1_bool = 0;
+  int is2mod5_bool = 0;
   printf("Hvilket heltal vil du tjekke?\n");
   scanf("%d", &number_to_test);
   printf("x er %d\n", number_to_test);
@@ -34,7 +38,7 @@ int main(void) {
   isGcd1_bool = isGcd1(number_to_test);
   is2mod5_bool = is2mod5(number_to_test);
 
-  if((isPrime_bool && !is2mod5_bool) ||
+  if ((isPrime_bool && !is2mod5_bool) ||
       !(isPrime_bool || !isGcd1_bool || is2mod5_bool) ||
       (!isPrime_bool && !isGcd1_bool && is2mod5_bool)) {
     printf("Du fandt et x\n");
