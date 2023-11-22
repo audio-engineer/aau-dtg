@@ -2,9 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum {
-  TWO = 2, FIVE = 5, NINE = 9
-};
+enum { TWO = 2, FIVE = 5, NINE = 9 };
+
 /* Denne funktion skal returnere 1 hvis x er et primtal og 0 ellers */
 int isPrime(int number) {
   int result = 1;
