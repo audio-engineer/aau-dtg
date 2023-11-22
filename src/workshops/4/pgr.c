@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+enum {
+  TWO = 2, FIVE = 5, NINE = 9
+};
 /* Denne funktion skal returnere 1 hvis x er et primtal og 0 ellers */
 int isPrime(int number) {
   int result = 1;
@@ -15,13 +18,11 @@ int isPrime(int number) {
 }
 
 /* Denne funktion skal returnere 1 hvis gcd(x,2)=1 og 0 ellers */
-int isGcd1(int number) {
-  return number;
-}
+int isGcd1(int number) { return number; }
 
 /* Denne funktion skal returnere 1 hvis 9^x-2 mod 5 = 2 og 0 ellers */
 int is2mod5(int number) {
-  int result = ((int)pow(9, number % 5) - 2) % 5 == 2 ? 1 : 0;
+  int result = ((int)pow(NINE, number % FIVE) - TWO) % FIVE == TWO ? 1 : 0;
   return result;
 }
 
