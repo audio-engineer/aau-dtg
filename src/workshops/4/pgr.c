@@ -31,6 +31,7 @@ int main(void) {
   int isGcd1_bool = 0;
   int is2mod5_bool = 0;
   printf("Hvilket heltal vil du tjekke?\n");
+  // NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.scan)
   scanf("%d", &number_to_test);
   printf("x er %d\n", number_to_test);
 
