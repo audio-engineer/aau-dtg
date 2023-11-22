@@ -35,12 +35,13 @@ int main(void) {
   is2mod5_bool = is2mod5(number_to_test);
 
   +  if ((isPrime_bool && !is2mod5_bool) ||
-       +      !(isPrime_bool || !isGcd1_bool || is2mod5_bool) ||
-       +      (!isPrime_bool && !isGcd1_bool && is2mod5_bool)) {
+       +!(isPrime_bool || !isGcd1_bool || is2mod5_bool) ||
+       +(!isPrime_bool && !isGcd1_bool && is2mod5_bool)) {
     printf("Du fandt et x\n");
     printf("p er %d, q er %d, and r er %d\n", isPrime_bool, isGcd1_bool,
            is2mod5_bool);
-  } else {
+  }
+  else {
     printf("Proev igen\n");
   }
 
