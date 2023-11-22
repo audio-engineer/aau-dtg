@@ -34,7 +34,7 @@ int main(void) {
   isGcd1_bool = isGcd1(number_to_test);
   is2mod5_bool = is2mod5(number_to_test);
 
-  if ((isPrime_bool && !is2mod5_bool) ||
+  if((isPrime_bool && !is2mod5_bool) ||
       !(isPrime_bool || !isGcd1_bool || is2mod5_bool) ||
       (!isPrime_bool && !isGcd1_bool && is2mod5_bool)) {
     printf("Du fandt et x\n");
