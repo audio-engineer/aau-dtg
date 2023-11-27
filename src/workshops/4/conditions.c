@@ -20,6 +20,7 @@ bool IsGcd1(int number);
 /* Denne funktion skal returnere 1 hvis 9^x-2 mod 5 = 2 og 0 ellers */
 bool Is2Mod5(int number) {
   int exponent_calculation = (int)pow(kNine, number % kFive);
+  // NOLINTNEXTLINE(readability-implicit-bool-conversion)
   return (exponent_calculation - kTwo) % kFive == kTwo;
 }
 
@@ -33,8 +34,11 @@ int main(void) {
   scanf("%d", &number_to_test);
   printf("x er %d\n", number_to_test);
 
+  // NOLINTNEXTLINE(readability-implicit-bool-conversion)
   is_prime_number = IsPrime(number_to_test);
+  // NOLINTNEXTLINE(readability-implicit-bool-conversion)
   is_greatest_common_divisor = IsGcd1(number_to_test);
+  // NOLINTNEXTLINE(readability-implicit-bool-conversion)
   is_2mod5 = Is2Mod5(number_to_test);
 
   if ((is_prime_number && !is_2mod5) ||
