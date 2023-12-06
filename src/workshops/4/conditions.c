@@ -48,13 +48,15 @@ int main() {
     }
 
     const bool kIsPrimeNumber = IsPrimeNumber(number);
-    const bool kIsGreatestCommonDivisor = IsGreatestCommonDivisorOne(number, 2);
+    const bool kIsGreatestCommonDivisorOne =
+        IsGreatestCommonDivisorOne(number, 2);
     const bool kIs2Mod5 = Is2Mod5(number);
 
     bool condition =
         ((int)kIsPrimeNumber && !kIs2Mod5) ||
-        !((int)kIsPrimeNumber || !kIsGreatestCommonDivisor || (int)kIs2Mod5) ||
-        (!kIsPrimeNumber && !kIsGreatestCommonDivisor && (int)kIs2Mod5);
+        !((int)kIsPrimeNumber || !kIsGreatestCommonDivisorOne ||
+          (int)kIs2Mod5) ||
+        (!kIsPrimeNumber && !kIsGreatestCommonDivisorOne && (int)kIs2Mod5);
 
     if (!condition) {
       printf("Try again.\n");
@@ -62,9 +64,11 @@ int main() {
       continue;
     }
 
-    printf("You found an x\n");
-    printf("p: %d, q: %d, r: %d\n", (int)kIsPrimeNumber,
-           (int)kIsGreatestCommonDivisor, (int)kIs2Mod5);
+    printf("You found an x!\n");
+    printf("Is prime number? %d\n", (int)kIsPrimeNumber);
+    printf("Is greatest common divisor 1? %d\n",
+           (int)kIsGreatestCommonDivisorOne);
+    printf("Is 2 % 5? %d\n", (int)kIs2Mod5);
   }
 
   return EXIT_SUCCESS;
