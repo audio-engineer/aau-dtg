@@ -4,7 +4,7 @@
 
 enum Constants { kTwo = 2, kFive = 5, kNine = 9 };
 
-bool IsPrimeNumber(int number) {
+bool IsPrimeNumber(const int number) {
   for (int i = 2; i < number / 2; i++) {
     if (number % i == 0) {
       return false;
@@ -28,35 +28,44 @@ bool IsGreatestCommonDivisorOne(int number_one, int number_two) {
   return (bool)(number_one == 1);
 }
 
-bool Is2Mod5(int number) {
-  int exponent_calculation = (int)pow(kNine, number % kFive);
+bool Is2Mod5(const int number) {
+  const int kExponentCalculation = (int)pow(kNine, number % kFive);
 
-  return (bool)((exponent_calculation - kTwo) % kFive == kTwo);
+  return (bool)((kExponentCalculation - kTwo) % kFive == kTwo);
 }
 
 int main() {
   int number = 0;
 
-  printf("Enter a number: ");
+  while (true) {
+    printf("Enter a number: ");
 
-  // NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling)
-  scanf("%d", &number);
+    // NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling)
+    scanf("%d", &number);
 
-  bool is_prime_number = IsPrimeNumber(number);
-  bool is_greatest_common_divisor = IsGreatestCommonDivisorOne(number, 2);
-  bool is_2mod5 = Is2Mod5(number);
+    if (0 == number) {
+      break;
+    }
 
-  if (((int)is_prime_number && !is_2mod5) ||
-      !((int)is_prime_number || !is_greatest_common_divisor || (int)is_2mod5) ||
-      (!is_prime_number && !is_greatest_common_divisor && (int)is_2mod5)) {
+    const bool kIsPrimeNumber = IsPrimeNumber(number);
+    const bool kIsGreatestCommonDivisor = IsGreatestCommonDivisorOne(number, 2);
+    const bool kIs2Mod5 = Is2Mod5(number);
+
+    bool condition =
+        ((int)kIsPrimeNumber && !kIs2Mod5) ||
+        !((int)kIsPrimeNumber || !kIsGreatestCommonDivisor || (int)kIs2Mod5) ||
+        (!kIsPrimeNumber && !kIsGreatestCommonDivisor && (int)kIs2Mod5);
+
+    if (!condition) {
+      printf("Try again.\n");
+
+      continue;
+    }
+
     printf("You found an x\n");
-    printf("p: %d, q: %d, r: %d\n", (int)is_prime_number,
-           (int)is_greatest_common_divisor, (int)is_2mod5);
-
-    return EXIT_SUCCESS;
+    printf("p: %d, q: %d, r: %d\n", (int)kIsPrimeNumber,
+           (int)kIsGreatestCommonDivisor, (int)kIs2Mod5);
   }
-
-  printf("Try again.\n");
 
   return EXIT_SUCCESS;
 }
