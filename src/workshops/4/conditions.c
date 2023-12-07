@@ -28,10 +28,9 @@ bool IsGreatestCommonDivisorOne(int number_one, int number_two) {
   return (bool)(number_one == 1);
 }
 
-bool Is2Mod5(const int number) {
-  const int kExponentCalculation = (int)pow(kNine, number % kFive);
-
-  return (bool)((kExponentCalculation - kTwo) % kFive == kTwo);
+bool IsSpecialNumber(const int number) {
+  return (bool)((int)(pow((double)kNine, (double)number) - kTwo) % kFive ==
+                kTwo);
 }
 
 int main() {
@@ -43,6 +42,7 @@ int main() {
     // NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling)
     scanf("%d", &number);
 
+    // Press `0` to exit
     if (0 == number) {
       break;
     }
@@ -50,25 +50,26 @@ int main() {
     const bool kIsPrimeNumber = IsPrimeNumber(number);
     const bool kIsGreatestCommonDivisorOne =
         IsGreatestCommonDivisorOne(number, 2);
-    const bool kIs2Mod5 = Is2Mod5(number);
+    const bool kIsSpecialNumber = IsSpecialNumber(number);
 
-    bool condition =
-        ((int)kIsPrimeNumber && !kIs2Mod5) ||
-        !((int)kIsPrimeNumber || !kIsGreatestCommonDivisorOne ||
-          (int)kIs2Mod5) ||
-        (!kIsPrimeNumber && !kIsGreatestCommonDivisorOne && (int)kIs2Mod5);
+    // NOLINTBEGIN(readability-implicit-bool-conversion)
+    const bool kConditions =
+        (kIsPrimeNumber && !kIsSpecialNumber) ||
+        !(kIsPrimeNumber || !kIsGreatestCommonDivisorOne || kIsSpecialNumber) ||
+        (!kIsPrimeNumber && !kIsGreatestCommonDivisorOne && kIsSpecialNumber);
+    // NOLINTEND(readability-implicit-bool-conversion)
 
-    if (!condition) {
+    if (!kConditions) {
       printf("Try again.\n");
 
       continue;
     }
 
     printf("You found an x!\n");
-    printf("Is prime number? %d\n", (int)kIsPrimeNumber);
-    printf("Is greatest common divisor 1? %d\n",
-           (int)kIsGreatestCommonDivisorOne);
-    printf("Is 2 % 5? %d\n", (int)kIs2Mod5);
+    printf("\tIs x a prime number? %s\n", (int)kIsPrimeNumber ? "Yes" : "No");
+    printf("\tIs greatest common divisor of x and 2 = 1? %s\n",
+           (int)kIsGreatestCommonDivisorOne ? "Yes" : "No");
+    printf("\tIs 9^x - 2 %% 5 = 2? %s\n", (int)kIsSpecialNumber ? "Yes" : "No");
   }
 
   return EXIT_SUCCESS;
