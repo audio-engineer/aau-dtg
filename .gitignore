@@ -483,3 +483,7 @@ TSWLatexianTemp*
 
 # Added by the team
 /out/
+
+
+# Added by the team
+!/.vscode/c_cpp_properties.json
