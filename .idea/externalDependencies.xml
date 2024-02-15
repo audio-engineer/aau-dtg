@@ -4,6 +4,5 @@
     <plugin id="com.firsttimeinforever.intellij.pdf.viewer.intellij-pdf-viewer" />
     <plugin id="mobi.hsz.idea.gitignore" />
     <plugin id="nl.rubensten.texifyidea" />
-    <plugin id="org.editorconfig.editorconfigjetbrains" />
   </component>
 </project>
