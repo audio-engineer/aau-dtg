@@ -1,0 +1,40 @@
+% Preamble
+\documentclass[11pt,oneside]{book}
+
+% Packages
+\usepackage[a4paper]{geometry}
+\usepackage[danish]{babel}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage[indent=20pt]{parskip}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{icomma}
+\usepackage{import}
+
+% textidote: ignore begin
+\hypersetup{pdfborder=0 0 0}
+
+\lstdefinestyle{code}{
+    tabsize=2
+}
+
+\lstset{style=code}
+% textidote: ignore end
+
+% Document
+\title{DTG noter}
+\author{Group 9}
+
+\begin{document}
+\maketitle
+
+% textidote: ignore begin
+\tableofcontents
+% textidote: ignore end
+
+\import{1/}{content}
+\import{2/}{content}
+\import{3/}{content}
+
+\end{document}
